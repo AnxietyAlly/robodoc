@@ -91,7 +91,7 @@ export async function getSingleResponse(req, res) {
 
 export async function getAllCategories(req, res) {
   try {
-    const stmnt = db.prepare("SELECT * FROM robodocResponseCategory");
+    const stmnt = db.prepare("SELECT * FROM robodocResponseCategories");
     const rows = stmnt.all();
     const jsonToSend = {
       meta: {
@@ -114,7 +114,7 @@ export async function getAllCategories(req, res) {
 export async function getSingleCategory(req, res) {
   try {
     const params = [req.params.id];
-    const stmnt = db.prepare(`SELECT * FROM robodocResponseCategory where id = ?`);
+    const stmnt = db.prepare(`SELECT * FROM robodocResponseCategories where id = ?`);
     const row = stmnt.get(params);
     const jsonToSend = {
       meta: {
